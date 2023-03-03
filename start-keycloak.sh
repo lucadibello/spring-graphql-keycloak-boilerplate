@@ -8,9 +8,9 @@ read -r detach
 if [[ $detach == "y" ]]; then
   # Start Keycloak container
   docker run \
-    --name keycloak \
+    --name keycloak-boilerplate \
     -d \
-    -p 8081:8080 \
+    -p 8082:8080 \
     -e KEYCLOAK_ADMIN=admin \
     -e KEYCLOAK_ADMIN_PASSWORD=admin \
     --restart=always \
@@ -19,8 +19,8 @@ if [[ $detach == "y" ]]; then
 else
   # Start Keycloak container
   docker run \
-    --name keycloak \
-    -p 8081:8080 \
+    --name keycloak-boilerplate \
+    -p 8082:8080 \
     -e KEYCLOAK_ADMIN=admin \
     -e KEYCLOAK_ADMIN_PASSWORD=admin \
     quay.io/keycloak/keycloak:21.0.0 \
