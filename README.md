@@ -34,7 +34,12 @@ This is a boilerplate project to create a Spring Boot application with GraphQL a
 
 ## Initial setup
 
-1. Run KeyCloak container
+1. Start PostgreSQL container using Docker Compose
+```bash
+docker-compose up -d
+```
+
+2. Run KeyCloak container
 ```bash
 chmod -x ./start-keycloak.sh && ./start-keycloak.sh
 ```
@@ -46,13 +51,13 @@ After the container is up and running, you can access the KeyCloak admin panel a
 
 > Notice: Unfortunately, you can change the username and password by editing the `start-keycloak.sh` file. 
 
-2. Setup KeyCloak realm and application client
+3. Setup KeyCloak realm and application client
 
 Since KeyCloak is not part of this project, you need to manually setup the KeyCloak realm and application client.
 
 You can follow the official documentation [here](https://www.keycloak.org/docs/13.0/getting_started/).
 
-3. Edit the `application.properties` file
+4. Edit the `application.properties` file
 
 You need to update the configured KeyCloak realm and client ID (and secret if you have one).
 
@@ -63,7 +68,7 @@ spring.security.oauth2.client.registration.keycloak.client-id=<CLIENT NAME>
 spring.security.oauth2.client.registration.keycloak.client-secret=<CLIENT SECRET>
 ```
 
-4. Run the application with Maven
+5. Run the application with Maven
 
 ```bash
 mvn spring-boot:run
